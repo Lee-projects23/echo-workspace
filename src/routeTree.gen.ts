@@ -10,33 +10,219 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvancesRouteImport } from './routes/advances'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BillBookRouteImport } from './routes/bill-book'
+import { Route as ChatsRouteImport } from './routes/chats'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as VaultRouteImport } from './routes/vault'
+import { Route as ActivitiesNewRouteImport } from './routes/activities.new'
+import { Route as ClientsNewRouteImport } from './routes/clients.new'
+import { Route as EmployeesEmployeeIdRouteImport } from './routes/employees.$employeeId'
+import { Route as EmployeesNewRouteImport } from './routes/employees.new'
+import { Route as TasksNewRouteImport } from './routes/tasks.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvancesRoute = AdvancesRouteImport.update({
+  id: '/advances',
+  path: '/advances',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BillBookRoute = BillBookRouteImport.update({
+  id: '/bill-book',
+  path: '/bill-book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatsRoute = ChatsRouteImport.update({
+  id: '/chats',
+  path: '/chats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VaultRoute = VaultRouteImport.update({
+  id: '/vault',
+  path: '/vault',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesNewRoute = ActivitiesNewRouteImport.update({
+  id: '/activities/new',
+  path: '/activities/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsNewRoute = ClientsNewRouteImport.update({
+  id: '/clients/new',
+  path: '/clients/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeesEmployeeIdRoute = EmployeesEmployeeIdRouteImport.update({
+  id: '/employees/$employeeId',
+  path: '/employees/$employeeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeesNewRoute = EmployeesNewRouteImport.update({
+  id: '/employees/new',
+  path: '/employees/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksNewRoute = TasksNewRouteImport.update({
+  id: '/tasks/new',
+  path: '/tasks/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advances': typeof AdvancesRoute
+  '/analytics': typeof AnalyticsRoute
+  '/auth': typeof AuthRoute
+  '/bill-book': typeof BillBookRoute
+  '/chats': typeof ChatsRoute
+  '/dashboard': typeof DashboardRoute
+  '/help': typeof HelpRoute
+  '/settings': typeof SettingsRoute
+  '/vault': typeof VaultRoute
+  '/activities/new': typeof ActivitiesNewRoute
+  '/clients/new': typeof ClientsNewRoute
+  '/employees/$employeeId': typeof EmployeesEmployeeIdRoute
+  '/employees/new': typeof EmployeesNewRoute
+  '/tasks/new': typeof TasksNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advances': typeof AdvancesRoute
+  '/analytics': typeof AnalyticsRoute
+  '/auth': typeof AuthRoute
+  '/bill-book': typeof BillBookRoute
+  '/chats': typeof ChatsRoute
+  '/dashboard': typeof DashboardRoute
+  '/help': typeof HelpRoute
+  '/settings': typeof SettingsRoute
+  '/vault': typeof VaultRoute
+  '/activities/new': typeof ActivitiesNewRoute
+  '/clients/new': typeof ClientsNewRoute
+  '/employees/$employeeId': typeof EmployeesEmployeeIdRoute
+  '/employees/new': typeof EmployeesNewRoute
+  '/tasks/new': typeof TasksNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advances': typeof AdvancesRoute
+  '/analytics': typeof AnalyticsRoute
+  '/auth': typeof AuthRoute
+  '/bill-book': typeof BillBookRoute
+  '/chats': typeof ChatsRoute
+  '/dashboard': typeof DashboardRoute
+  '/help': typeof HelpRoute
+  '/settings': typeof SettingsRoute
+  '/vault': typeof VaultRoute
+  '/activities/new': typeof ActivitiesNewRoute
+  '/clients/new': typeof ClientsNewRoute
+  '/employees/$employeeId': typeof EmployeesEmployeeIdRoute
+  '/employees/new': typeof EmployeesNewRoute
+  '/tasks/new': typeof TasksNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/advances'
+    | '/analytics'
+    | '/auth'
+    | '/bill-book'
+    | '/chats'
+    | '/dashboard'
+    | '/help'
+    | '/settings'
+    | '/vault'
+    | '/activities/new'
+    | '/clients/new'
+    | '/employees/$employeeId'
+    | '/employees/new'
+    | '/tasks/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/advances'
+    | '/analytics'
+    | '/auth'
+    | '/bill-book'
+    | '/chats'
+    | '/dashboard'
+    | '/help'
+    | '/settings'
+    | '/vault'
+    | '/activities/new'
+    | '/clients/new'
+    | '/employees/$employeeId'
+    | '/employees/new'
+    | '/tasks/new'
+  id:
+    | '__root__'
+    | '/'
+    | '/advances'
+    | '/analytics'
+    | '/auth'
+    | '/bill-book'
+    | '/chats'
+    | '/dashboard'
+    | '/help'
+    | '/settings'
+    | '/vault'
+    | '/activities/new'
+    | '/clients/new'
+    | '/employees/$employeeId'
+    | '/employees/new'
+    | '/tasks/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvancesRoute: typeof AdvancesRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  AuthRoute: typeof AuthRoute
+  BillBookRoute: typeof BillBookRoute
+  ChatsRoute: typeof ChatsRoute
+  DashboardRoute: typeof DashboardRoute
+  HelpRoute: typeof HelpRoute
+  SettingsRoute: typeof SettingsRoute
+  VaultRoute: typeof VaultRoute
+  ActivitiesNewRoute: typeof ActivitiesNewRoute
+  ClientsNewRoute: typeof ClientsNewRoute
+  EmployeesEmployeeIdRoute: typeof EmployeesEmployeeIdRoute
+  EmployeesNewRoute: typeof EmployeesNewRoute
+  TasksNewRoute: typeof TasksNewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +234,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advances': {
+      id: '/advances'
+      path: '/advances'
+      fullPath: '/advances'
+      preLoaderRoute: typeof AdvancesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bill-book': {
+      id: '/bill-book'
+      path: '/bill-book'
+      fullPath: '/bill-book'
+      preLoaderRoute: typeof BillBookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chats': {
+      id: '/chats'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof ChatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vault': {
+      id: '/vault'
+      path: '/vault'
+      fullPath: '/vault'
+      preLoaderRoute: typeof VaultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities/new': {
+      id: '/activities/new'
+      path: '/activities/new'
+      fullPath: '/activities/new'
+      preLoaderRoute: typeof ActivitiesNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clients/new': {
+      id: '/clients/new'
+      path: '/clients/new'
+      fullPath: '/clients/new'
+      preLoaderRoute: typeof ClientsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employees/$employeeId': {
+      id: '/employees/$employeeId'
+      path: '/employees/$employeeId'
+      fullPath: '/employees/$employeeId'
+      preLoaderRoute: typeof EmployeesEmployeeIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employees/new': {
+      id: '/employees/new'
+      path: '/employees/new'
+      fullPath: '/employees/new'
+      preLoaderRoute: typeof EmployeesNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/new': {
+      id: '/tasks/new'
+      path: '/tasks/new'
+      fullPath: '/tasks/new'
+      preLoaderRoute: typeof TasksNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvancesRoute: AdvancesRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  AuthRoute: AuthRoute,
+  BillBookRoute: BillBookRoute,
+  ChatsRoute: ChatsRoute,
+  DashboardRoute: DashboardRoute,
+  HelpRoute: HelpRoute,
+  SettingsRoute: SettingsRoute,
+  VaultRoute: VaultRoute,
+  ActivitiesNewRoute: ActivitiesNewRoute,
+  ClientsNewRoute: ClientsNewRoute,
+  EmployeesEmployeeIdRoute: EmployeesEmployeeIdRoute,
+  EmployeesNewRoute: EmployeesNewRoute,
+  TasksNewRoute: TasksNewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
