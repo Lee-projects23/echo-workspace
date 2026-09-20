@@ -1,0 +1,15 @@
+import type { ReactNode } from "react";
+import { Check, ChevronLeft } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+
+export function Brand({ inverse = false }: { inverse?: boolean }) { return <div className={cn("flex items-center gap-2 font-bold tracking-[.18em]", inverse ? "text-primary-foreground" : "text-foreground")}><span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-button">E</span><span>ECHO</span></div>; }
+export function GlassCard({ children, className }: { children: ReactNode; className?: string }) { return <div className={cn("glass rounded-[1.5rem] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card", className)}>{children}</div>; }
+export function PageHeader({ title, eyebrow, action }: { title: string; eyebrow?: string; action?: ReactNode }) { return <div className="mb-7 flex flex-wrap items-end justify-between gap-4"><div><Link to="/dashboard" className="mb-5 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"><ChevronLeft className="size-4"/>Back</Link>{eyebrow && <p className="mb-2 text-xs font-semibold uppercase text-primary">{eyebrow}</p>}<h1 className="text-3xl font-semibold text-foreground md:text-4xl">{title}</h1></div>{action}</div>; }
+export function Field({ label, children, className }: { label: string; children: ReactNode; className?: string }) { return <label className={cn("grid gap-2 text-sm font-medium text-foreground", className)}><span>{label}</span>{children}</label>; }
+export const inputClass = "h-11 w-full rounded-xl border border-input bg-background/70 px-3.5 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 placeholder:text-muted-foreground";
+export const textareaClass = `${inputClass} min-h-28 resize-y py-3`;
+export function Section({ title, description, children }: { title: string; description?: string; children: ReactNode }) { return <GlassCard><div className="mb-5"><h2 className="text-lg font-semibold">{title}</h2>{description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}</div><div className="grid gap-4 md:grid-cols-2">{children}</div></GlassCard>; }
+export function ToggleRow({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) { return <button type="button" onClick={onChange} className="flex w-full items-center justify-between rounded-xl border border-border bg-background/50 p-3 text-left text-sm"><span>{label}</span><span className={cn("grid size-5 place-items-center rounded-md border transition", checked ? "border-primary bg-primary text-primary-foreground" : "border-input")}><Check className={cn("size-3.5 transition", checked ? "scale-100" : "scale-0")}/></span></button>; }
+export function SaveBar({ label = "Save & Continue", onClick }: { label?: string; onClick?: () => void }) { return <div className="flex justify-end"><Button type={onClick ? "button" : "submit"} size="lg" onClick={onClick}>{label}</Button></div>; }
