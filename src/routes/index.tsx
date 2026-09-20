@@ -1,24 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import blue from "@/assets/echo-glass-blue.jpg";
+import titanium from "@/assets/echo-titanium.jpg";
+import orbit from "@/assets/echo-orbit.jpg";
+const images=[blue,titanium,orbit];
+export const Route=createFileRoute("/")({head:()=>({meta:[{title:"ECHO — Enterprise Operations"},{name:"description",content:"Enter the ECHO enterprise operations workspace."},{property:"og:title",content:"ECHO — Enterprise Operations"},{property:"og:description",content:"A premium enterprise operations workspace."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:Index});
+function Index(){const [active,setActive]=useState(0);useEffect(()=>{const id=window.setInterval(()=>setActive(i=>(i+1)%images.length),5200);return()=>window.clearInterval(id)},[]);return <main className="relative grid min-h-screen place-items-center overflow-hidden bg-foreground text-primary-foreground">{images.map((src,i)=><img key={src} src={src} alt="" width={1600} height={1000} className={`absolute inset-0 size-full object-cover transition-all duration-1000 ${active===i?"opacity-80 animate-slow-zoom":"opacity-0"}`}/>)}<div className="absolute inset-0 bg-foreground/45"/><section className="relative z-10 flex flex-col items-center px-5 text-center"><div className="mb-7 grid size-20 place-items-center rounded-[1.5rem] border border-primary-foreground/25 bg-primary-foreground/10 text-4xl font-semibold backdrop-blur-xl">E</div><h1 className="text-6xl font-semibold tracking-[.18em] md:text-8xl">ECHO</h1><p className="mt-5 max-w-md text-base text-primary-foreground/65 md:text-lg">One calm place to run your people, clients, work, and finances.</p><Button asChild size="lg" className="mt-10"><Link to="/auth">Enter Workspace <ArrowRight className="size-4"/></Link></Button></section><div className="absolute bottom-8 z-10 flex gap-2">{images.map((_,i)=><button key={i} aria-label={`Background ${i+1}`} onClick={()=>setActive(i)} className={`h-1 rounded-full transition-all ${active===i?"w-8 bg-primary-foreground":"w-3 bg-primary-foreground/35"}`}/>)}</div><p className="absolute bottom-3 z-10 text-[10px] text-primary-foreground/45">Powered by Xelevate</p></main>}
